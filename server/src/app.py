@@ -36,5 +36,6 @@ def connect():
     }
     return jsonify(data),200
 
+
 if __name__ == '__main__':
     app.run(host = 'localhost', port=13000, threaded=True)
