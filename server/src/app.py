@@ -1,7 +1,7 @@
 from flask import Flask,jsonify, request
 
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 @app.route('/message_passing')
 def get_message():
@@ -10,5 +10,5 @@ def get_message():
     data = {'message': message}
     return jsonify(data), 200
 
-if _name_ == '_main_':
-    app.run()
+if __name__ == '__main__':
+    app.run(host = 'localhost', port=13000, threaded=True)
