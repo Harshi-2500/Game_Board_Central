@@ -39,7 +39,7 @@ def connect():
         pairs[client_pair_id] = curr_client_id
         pairs[curr_client_id] = client_pair_id 
 
-        if(client_pair_id==0):
+        if not clients_list:
             client_host = topmost_client['host']
             client_port = topmost_client['port']
             
