@@ -2,13 +2,14 @@ import http.client
 import urllib.parse
 import json
 from flask import Flask,jsonify, request
+import sys
 import socket
 
 
 app = Flask(__name__)
 
 server_host = 'localhost'
-current_client_port = 13001
+current_client_port = None
 
 def send_message():
     try: 
@@ -62,6 +63,8 @@ def get_pair_id():
     return json.dumps(response), 200
 
 if __name__ == '__main__':
+    args = sys.argv
+    current_client_port = int(args[1])
     send_message()
     establish_connection()
     app.run(host = 'localhost', port=current_client_port)
